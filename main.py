@@ -18,25 +18,23 @@ SECTION_KEYWORDS = {
     "Project History and Relevant Experience": "project_history_documents",
     "Additional Requirements and Compliance Documents": "additional_requirements_documents",
 }
-
-
 def main():
     # Initialize session state variables if not already initialized
     if "chat_bot" not in st.session_state:
-        st.session_state.chat_bot = None  # Placeholder for ChatBot instance
+        st.session_state.chat_bot = None
     if "chat_history" not in st.session_state:
-        st.session_state.chat_history = []  # To store chat history
+        st.session_state.chat_history = []
     if "section_embeddings" not in st.session_state:
-        st.session_state.section_embeddings = {}  # To store embeddings for sections
+        st.session_state.section_embeddings = {}
+    
+    # New line to track uploaded sections
+    if "uploaded_sections" not in st.session_state:
+        st.session_state.uploaded_sections = set()
 
     # Initialize the database tables
     initialize_database()
     
     st.title("Proposal and Chatbot System")
-
-    # Initialize database connection
-    conn = sqlite3.connect('files.db', check_same_thread=False)
-    cursor = conn.cursor()
 
     # Sidebar: Section Selection
     section = st.sidebar.selectbox(

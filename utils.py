@@ -4,7 +4,8 @@ from unstructured.cleaners.core import (
     clean_non_ascii_chars,
     replace_unicode_quotes,
 )
-
+from langchain_community.vectorstores import FAISS
+from langchain_huggingface import HuggingFaceEmbeddings
 
 def unbold_text(text):
     # Mapping of bold numbers to their regular equivalents
@@ -112,17 +113,18 @@ def format_response(response):
     sentences = re.split(r'(?<=[.!?])\s+', response)
     return '\n'.join(sentences)
 
-# def clean_text(text):
-#     """Clean and preprocess text."""
-#     # Remove extra whitespace
-#     text = re.sub(r'\s+', ' ', text).strip()
-#     # Remove special characters
-#     text = re.sub(r'[^\w\s]', '', text)
-#     return text
-
 def format_response(response):
     """Format the chatbot response for better readability."""
     sentences = re.split(r'(?<=[.!?])\s+', response)
     formatted_response = '\n'.join(sentences)
     return formatted_response
 
+
+
+def create_empty_vectordb():
+    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+    texts = [
+        "No documents are available for this section. Upload documents to get accurate results.",
+        "Placeholder content to initialize FAISS."
+    ]
+    return FAISS.from_texts(texts, embeddings)

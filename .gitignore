@@ -8,3 +8,4 @@ venv/
 analysis_workspace/
 files.db
 lightrag.log
+data/

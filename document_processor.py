@@ -6,7 +6,6 @@ import logging
 
 logging.basicConfig(level=logging.INFO)
 
-
 class DocumentProcessor:
     SECTION_KEYWORDS = {
         "Request for Proposal (RFP) Document",

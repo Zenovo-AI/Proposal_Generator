@@ -1,23 +1,13 @@
-__pycache__
-*.egg-info
-dickens/
-book.txt
-lightrag-dev/
-.idea/
-dist/
-env/
-local_neo4jWorkDir/
-neo4jWorkDir/
-ignore_this.txt
-.venv/
-*.ignore.*
-.ruff_cache/
-gui/
-*.log
-.vscode
-inputs
-rag_storage
+# Environment-specific files
 .env
+
+# Python virtual environment
 venv/
-examples/input/
-examples/output/
+
+# Application-specific files
+analysis_workspace/
+files.db
+lightrag.log
+data/
+.streamlit/
+_pycache_/

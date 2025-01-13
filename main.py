@@ -1,18 +1,16 @@
-from typing import Optional
-from app import select_section, uploaded_files, web_links
 from datamodel import RequestModel
 from inference import retrieve_all_files_in_section
 from ingress import ingress_file_doc
 import google.generativeai as genai
 from db_helper import initialize_database
 from contextlib import asynccontextmanager
-from fastapi import FastAPI, status, Depends, HTTPException, UploadFile, File, Form
-import os, secrets, uvicorn
+from fastapi import FastAPI, status, UploadFile, File
+import os, uvicorn
 from starlette.middleware.httpsredirect import HTTPSRedirectMiddleware
-from fastapi.security import HTTPBasic, HTTPBasicCredentials
+from fastapi.security import HTTPBasic
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-from settings import Settings, get_setting
+from settings import get_setting
 from appconfig import settings as app_settings
 import sys
 import os

@@ -4,7 +4,7 @@
         {
             "label": "Build Docker Image",
             "type": "shell",
-            "command": "docker build -t my-app-image .",
+            "command": "docker build -t proposal-generator.",
             "group": {
                 "kind": "build",
                 "isDefault": true 

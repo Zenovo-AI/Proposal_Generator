@@ -25,5 +25,8 @@ COPY . /app/
 # Expose the port the application listens on
 EXPOSE 8080
 
+# Define the entrypoint 
+ENTRYPOINT ["python", "app.py"]
+
 # Define the default command to run the application
 CMD ["python", "app.py"]

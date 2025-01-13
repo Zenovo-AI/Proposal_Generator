@@ -25,7 +25,6 @@ distro
 docstring_parser
 emoji
 faiss-cpu
-fast-graphrag
 fastapi
 filelock
 filetype

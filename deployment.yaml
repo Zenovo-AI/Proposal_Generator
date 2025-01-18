@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: proposal-generator
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: proposal-generator
+  template:
+    metadata:
+      labels:
+        app: proposal-generator
+    spec:
+      containers:
+      - name: proposal-generator
+        image: gcr.io/proposalgenerator-446820/proposal_generator:latest
+        ports:
+        - containerPort: 8080

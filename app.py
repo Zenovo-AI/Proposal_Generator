@@ -7,7 +7,7 @@ import httpx
 from db_helper import delete_file, initialize_database, get_uploaded_sections
 from constant import SECTION_KEYWORDS
 
-API_BASE_URL = "http://localhost:8000"  # FastAPI server's URL
+API_BASE_URL = " http://34.123.43.41/"  # FastAPI server's URL
 
 # Document Processor Placeholder
 process_document = None  # Replace with actual DocumentProcessor if used
@@ -66,7 +66,7 @@ async def process_file(uploaded_file, section, web_links):
         
         # Use async HTTP client to send the request
         async with httpx.AsyncClient() as client:
-            response = await client.post("http://localhost:8000/ingress-file", files=file_data, json=data, timeout=1800)
+            response = await client.post(" http://34.123.43.41//ingress-file", files=file_data, json=data, timeout=1800)
             
             if response.status_code == 200:
                 placeholder = st.empty()

@@ -25,8 +25,5 @@ COPY . /app/
 # Expose the port the application listens on
 EXPOSE 8080
 
-# Define the entrypoint 
-ENTRYPOINT ["python", "app.py"]
-
-# Define the default command to run the application
-CMD ["python", "app.py"]
+# Command to run the FastAPI application
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

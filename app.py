@@ -64,7 +64,7 @@ async def process_file(uploaded_file, section, web_links):
         
         # Use async HTTP client to send the request
         async with httpx.AsyncClient() as client:
-            response = await client.post(" http://34.123.43.41/ingress-file", files=file_data, json=data, timeout=1800)
+            response = await client.post("http://34.123.43.41/ingress-file", files=file_data, json=data, timeout=1800)
             
             if response.status_code == 200:
                 placeholder = st.empty()

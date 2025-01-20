@@ -7,8 +7,6 @@ venv/
 
 # Application-specific files
 analysis_workspace/
-files.db
-lightrag.log
 data/
 .streamlit/
 _pycache_/

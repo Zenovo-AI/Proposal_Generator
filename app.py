@@ -1,14 +1,10 @@
 import asyncio
 import sqlite3
 import time
-from fastapi import requests
 import streamlit as st
 import httpx
 from db_helper import delete_file, initialize_database, get_uploaded_sections
 from constant import SECTION_KEYWORDS
-
-# Document Processor Placeholder
-process_document = None  # Replace with actual DocumentProcessor if used
 
 
 def uploaded_files():
@@ -64,7 +60,7 @@ async def process_file(uploaded_file, section, web_links):
         
         # Use async HTTP client to send the request
         async with httpx.AsyncClient() as client:
-            response = await client.post("http://34.123.43.41/ingress-file", files=file_data, json=data, timeout=1800)
+            response = await client.post("http://127.0.0.1:8000/ingress-file", files=file_data, timeout=1800)
             
             if response.status_code == 200:
                 placeholder = st.empty()
@@ -115,7 +111,7 @@ def main():
                 try:
                     payload = {"query": query, "section": table_name}
                     with httpx.Client() as client:
-                        response = client.post("http://34.123.43.41/retrieve", json=payload, timeout=1800)
+                        response = client.post("http://127.0.0.1:8000/retrieve", json=payload, timeout=1800)
 
                     if response.status_code == 200:
                         bot_response = response.json().get("response", "No response.")

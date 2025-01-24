@@ -38,14 +38,11 @@ def extract_pdf_from_db(file_name, section):
         # Retrieve the text content from the database
         cursor.execute(f"SELECT file_content FROM {section} WHERE file_name = ?", (file_name,))
         result = cursor.fetchone()
-        print(f"Result of Extraction: {result}")
-        print(f"Type of Result: {type(result)}")
 
         if not result:
             raise ValueError(f"File '{file_name}' not found in section '{section}'.")
 
         file_content = result[0]  # Retrieve file content
-        # print(f"Retrieved text content: {file_content}...")
 
         # Decode file content
         if isinstance(file_content, bytes):

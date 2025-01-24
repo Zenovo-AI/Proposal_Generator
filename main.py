@@ -102,7 +102,7 @@ def health():
 async def ingress_file(file: UploadFile = File(...)):
     try:
         # Define the file path
-        file_path = f"src/doc/{file.filename}"
+        file_path = f"doc/{file.filename}"
 
         # Create the directory if it doesn't exist
         os.makedirs(os.path.dirname(file_path), exist_ok=True)

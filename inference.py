@@ -286,7 +286,7 @@ async def retrieve_all_files_in_section(query, section):
 
         # Query LightRAG for this file
         print(f"Query: {query}")
-        result = await rag.aquery(query, param=QueryParam("local"))
+        result = await rag.aquery(query, param=QueryParam("hybrid"))
         print(f"Result for {file_name}: {result}")
         if result != "Sorry, I'm not able to provide an answer to that question.":
             group_response.append(result)

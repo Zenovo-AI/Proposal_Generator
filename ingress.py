@@ -80,6 +80,7 @@ async def ingress_file_doc(file_name: str, file_path: str = None, web_links: lis
         if file_path:
             if file_path.endswith(".pdf"):
                 text_content.append(process_document.extract_text_from_pdf(file_path))
+                print(type(f"Text content is of type: {text_content}"))
             elif file_path.endswith(".txt"):
                 text_content.append(process_document.extract_txt_content(file_path))
             else:
